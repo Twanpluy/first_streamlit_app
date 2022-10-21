@@ -12,8 +12,7 @@ streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 
-fruityvice_response = requests.get('https://fruityvice.com/api/fruit/watermelon')
-streamlit.text(fruityvice_response)
+
 
 
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
@@ -25,3 +24,5 @@ fruits_selected = streamlit.multiselect('Select your fruits: ',list(my_fruit_lis
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 #display items in the list
 streamlit.dataframe(fruits_to_show)
+fruityvice_response = requests.get('https://fruityvice.com/api/fruit/watermelon')
+streamlit.text(fruityvice_response)
