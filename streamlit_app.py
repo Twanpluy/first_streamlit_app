@@ -1,4 +1,5 @@
 
+from distutils.util import execute
 import json
 import streamlit
 import requests
@@ -50,7 +51,16 @@ streamlit.dataframe(my_data_row)
 
 add_fruit = streamlit.text_input('Add fruit', '', key="ditismijnunieketest")
 streamlit.write('The current movie title is', add_fruit)
-my_cursor.execute(f'insert into fruit_load_list values ({add_fruit})')
+
+my_cursor.execute("Insert into fruit_load_list (fruit_name) values ('" + add_fruit + "')")
+
+
+# my_cursor.execute(f'insert into pc_rivery_db.public.fruit_load_list
+#                    (FRUIT_NAME)
+#                    VALUES ('{add_fruit}')')
+
+
+
 
 
 # add fruits to list
