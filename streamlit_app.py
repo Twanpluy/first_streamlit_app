@@ -48,7 +48,7 @@ streamlit.text(f'The fruits contain: ')
 streamlit.dataframe(my_data_row)
 
 
-title = streamlit.text_input('Movie title', 'Life of Brian')
+title = streamlit.text_input('Movie title', 'Life of Brian', key="ditismijnunieketest")
 streamlit.write('The current movie title is', title)
 
 # add fruits to list
