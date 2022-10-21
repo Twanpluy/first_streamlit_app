@@ -11,4 +11,9 @@ streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
+
+# lets put the fruit list in a streamlit selectbox
+streamlit.multiselect('Select your fruits: ',list(my_fruit_list.index))
+
+#display items in the list
 streamlit.dataframe(my_fruit_list)
