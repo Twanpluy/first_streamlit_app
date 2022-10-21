@@ -1,4 +1,5 @@
 
+import json
 import streamlit
 import requests
 import pandas as pd
@@ -24,5 +25,7 @@ fruits_selected = streamlit.multiselect('Select your fruits: ',list(my_fruit_lis
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 #display items in the list
 streamlit.dataframe(fruits_to_show)
+
+# new section to display the fruityvice api response
 fruityvice_response = requests.get('https://fruityvice.com/api/fruit/watermelon')
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
