@@ -15,6 +15,6 @@ my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/da
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 # lets put the fruit list in a streamlit selectbox
-streamlit.multiselect('Select your fruits: ',list(my_fruit_list.index))
+streamlit.multiselect('Select your fruits: ',list(my_fruit_list.index),['Avocado','Banana'])
 #display items in the list
 streamlit.dataframe(my_fruit_list)
