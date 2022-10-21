@@ -46,3 +46,9 @@ my_cursor.execute('select * from fruit_load_list')
 my_data_row = my_cursor.fetchall()
 streamlit.text(f'The fruits contain: ')
 streamlit.dataframe(my_data_row)
+
+
+# add fruits to list
+add_my_fruit = streamlit.write('Add fruits to your list:')
+my_cursor.execute(f'insert into fruit_load_list values ({add_my_fruit})')
+
