@@ -37,3 +37,8 @@ fruityvice_response = requests.get(f'https://fruityvice.com/api/fruit/{fruit_cho
 
 streamlit.text(f'https://fruityvice.com/api/fruit/{fruit_choice}')
 
+fruityvice_response = requests.get(f'https://fruityvice.com/api/fruit/{fruit_choice}')
+fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+streamlit.dataframe(fruityvice_normalized)
+
+
