@@ -16,5 +16,11 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 
 # lets put the fruit list in a streamlit selectbox
 streamlit.multiselect('Select your fruits: ',list(my_fruit_list.index),['Avocado','Banana'])
+
+# lists to show only selected fruits
+fruits_selected = streamlit.multiselect('Select your fruits: ',list(my_fruit_list.index),['Avocado','Banana'])
+fruits_to_show = my_fruit_list.loc[fruits_selected]
+
+
 #display items in the list
-streamlit.dataframe(my_fruit_list)
+streamlit.dataframe(fruits_to_show)
