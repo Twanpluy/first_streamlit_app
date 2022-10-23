@@ -95,5 +95,3 @@ if streamlit.button('Add Fruit'):
 
 # my_cursor.execute("Insert into fruit_load_list (fruit_name) values ('" + add_fruit + "')")
 # my_cnx.commit()
-
-2022-10-23 11:26:33.891 query: [insert into pc_rivery_db.public.fruit_load_list values (test)]
