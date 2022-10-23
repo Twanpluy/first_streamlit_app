@@ -33,12 +33,8 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 ### Display items in the list ###
 streamlit.dataframe(fruits_to_show)
 
-
-
 ### FruitList ###
 ### Fruityvice ###
-
-
 streamlit.header('Fruityvice Fruit Advice')
 
 try:
@@ -52,20 +48,39 @@ try:
 except URLError as e:
     streamlit.error(f'Error: {e.reason}')
 
-streamlit.stop()
-# query snowflake
-# snowflake connection
+streamlit.header('Fruit list in Snowflake')
+
+### Snowflake connection ###
 my_cnx = snowflake.connector.connect(**streamlit.secrets['snowflake'])
-my_cursor = my_cnx.cursor()
-my_cursor.execute('select * from fruit_load_list')
-my_data_row = my_cursor.fetchall()
-streamlit.text(f'The fruits contain: ')
-streamlit.dataframe(my_data_row)
+### Snowflake select funciton ###
+def get_fruit_load_list():
+    with my_cnx.cursor() as my_cursor:
+        my_cursor.execute('select * from pc_rivery_db.public.fruit_load_list')
+        my_fruit_list = my_cursor.fetchall()
+        return my_fruit_list
+
+### Button to load in fruit list ###
+if streamlit.button('Load Fruit List'):
+    my_cnx = snowflake.connector.connect(**streamlit.secrets['snowflake'])
+    my_data_rows = get_fruit_load_list()
+    streamlit.dataframe(my_data_rows)
 
 
-add_fruit = streamlit.text_input('Add fruit', '', key="ditismijnunieketest")
-streamlit.write('The current movie title is', add_fruit)
 
-my_cursor.execute("Insert into fruit_load_list (fruit_name) values ('" + add_fruit + "')")
-my_cnx.commit()
+# streamlit.stop()
+# # query snowflake
+# # snowflake connection
+# my_cnx = snowflake.connector.connect(**streamlit.secrets['snowflake'])
+# my_cursor = my_cnx.cursor()
+# my_cursor.execute('select * from fruit_load_list')
+# my_data_row = my_cursor.fetchall()
+# streamlit.text(f'The fruits contain: ')
+# streamlit.dataframe(my_data_row)
+
+
+# add_fruit = streamlit.text_input('Add fruit', '', key="ditismijnunieketest")
+# streamlit.write('The current movie title is', add_fruit)
+
+# my_cursor.execute("Insert into fruit_load_list (fruit_name) values ('" + add_fruit + "')")
+# my_cnx.commit()
 
