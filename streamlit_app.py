@@ -1,12 +1,18 @@
 
 from distutils.util import execute
 import json
-from helper_functions import get_fruityvice_data
+#from helper_functions import get_fruityvice_data
 import streamlit
 import requests
 import pandas as pd
 import snowflake.connector
 from urllib.error import URLError
+
+### function to get fruityvuice data ###
+def get_fruityvice_data(this_fruit_choice):
+    fruityvice_response = requests.get(f'https://fruityvice.com/api/fruit/{this_fruit_choice}')
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
 
 streamlit.title('My Parents New Healty Diner')
 streamlit.header('Breakfast menu')
