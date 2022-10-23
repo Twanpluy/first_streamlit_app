@@ -68,7 +68,7 @@ if streamlit.button('Load Fruit List'):
 ### insert into Snowflake ###
 def insert_row_snowflake(new_fruit):
     with my_cnx.cursor() as my_cursor:
-        my_cursor.execute(f'insert into pc_rivery_db.public.fruit_load_list values ({new_fruit})')
+        my_cursor.execute(f"insert into pc_rivery_db.public.fruit_load_list values ('{new_fruit}')")
         my_cnx.commit()
         return f"Thanks for adding a new fruit! {new_fruit}"
 
@@ -96,3 +96,4 @@ if streamlit.button('Add Fruit'):
 # my_cursor.execute("Insert into fruit_load_list (fruit_name) values ('" + add_fruit + "')")
 # my_cnx.commit()
 
+2022-10-23 11:26:33.891 query: [insert into pc_rivery_db.public.fruit_load_list values (test)]
