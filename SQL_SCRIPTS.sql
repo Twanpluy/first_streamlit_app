@@ -1,3 +1,6 @@
+-- Be Clear, these are just random queries, used for a snowflake badge!!!!
+
+
 use role sysadmin;
 create database MELS_SMOOTHIE_CHALLENGE_DB;
 drop schema MELS_SMOOTHIE_CHALLENGE_DB.public;
