@@ -1,3 +1,6 @@
+-- Be Clear, these are just random queries, used for a snowflake badge!!!!
+
+
 use role sysadmin
 ;
 
