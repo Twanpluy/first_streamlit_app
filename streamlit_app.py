@@ -80,19 +80,3 @@ if streamlit.button('Add Fruit'):
     my_cnx.close()
     streamlit.text(my_data_rows)
 
-# streamlit.stop()
-# # query snowflake
-# # snowflake connection
-# my_cnx = snowflake.connector.connect(**streamlit.secrets['snowflake'])
-# my_cursor = my_cnx.cursor()
-# my_cursor.execute('select * from fruit_load_list')
-# my_data_row = my_cursor.fetchall()
-# streamlit.text(f'The fruits contain: ')
-# streamlit.dataframe(my_data_row)
-
-
-# add_fruit = streamlit.text_input('Add fruit', '', key="ditismijnunieketest")
-# streamlit.write('The current movie title is', add_fruit)
-
-# my_cursor.execute("Insert into fruit_load_list (fruit_name) values ('" + add_fruit + "')")
-# my_cnx.commit()
